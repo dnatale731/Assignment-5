@@ -23,3 +23,23 @@ function addColumn() {
   }
   columnCount++;
 }
+
+function removeRow() {
+  let table = document.querySelector(".table");
+
+  if (rowCount > 0) {
+    table.deleteRow(--rowCount);
+  }
+}
+
+function removeColumn() {
+  let table = document.querySelector(".table");
+  let rows = document.querySelectorAll("tr");
+
+  if (columnCount > 0) {
+    for (let i = 0; i < rowCount; i++) {
+      rows[i].removeChild(rows[i].lastChild);
+    }
+    columnCount--;
+  }
+}
